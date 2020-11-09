@@ -6,7 +6,7 @@ class BubbleSort
 	
 	public static void main(String[] args) {
 		//Validate Usage
-		if (args.length == 0) {
+  	if (args.length == 0) {
 			System.out.println("Valid Usage: (Filename).java (Elements of unsorted list)");
 			System.out.println("example: BubbleSort.java 3 2 4 1");
 			return;
@@ -65,3 +65,4 @@ class BubbleSort
 		return temp;
 	}
 }
+
