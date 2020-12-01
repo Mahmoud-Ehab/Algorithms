@@ -166,8 +166,48 @@
         </pre>
         <!--Created using ToHtml.com on 2020-11-09 08:48:08 UTC -->
       </div>
-    </section>
+		
+		<h2>Quick Sort</h2>
+		<div class="CC">
+		<pre style='color:#d1d1d1;'><span style='color:#9999a9; '>/*QuickSort Recursive Function</span>
+<span style='color:#9999a9; '>*p1: The list which needs to be sorted.</span>
+<span style='color:#9999a9; '>*p2: The start index of the list.</span>
+<span style='color:#9999a9; '>*p3: The end index of the list.</span>
+<span style='color:#9999a9; '>*p2 and p3 helps us divide the list easly while recursion.</span>
+<span style='color:#9999a9; '>*/</span>
+<span style='color:#e66170; font-weight:bold; '>public</span> <span style='color:#e66170; font-weight:bold; '>static</span> void sort(int[] list, int start, int end) <span style='color:#b060b0; '>{</span>
 
+	<span style='color:#9999a9; '>//Return from the function if the start is the end</span>
+	<span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>start <span style='color:#d2cd86; '>></span><span style='color:#d2cd86; '>=</span> end <span style='color:#d2cd86; '>-</span> <span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>)</span>
+		<span style='color:#e66170; font-weight:bold; '>return</span><span style='color:#b060b0; '>;</span>
+	
+	<span style='color:#bb7977; '>int</span> pivot <span style='color:#d2cd86; '>=</span> list<span style='color:#d2cd86; '>[</span>end <span style='color:#d2cd86; '>-</span> <span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>]</span><span style='color:#b060b0; '>;</span>
+	
+	<span style='color:#bb7977; '>int</span> k <span style='color:#d2cd86; '>=</span> start <span style='color:#d2cd86; '>-</span> <span style='color:#008c00; '>1</span><span style='color:#b060b0; '>;</span> <span style='color:#9999a9; '>//Index of the last smaller number we investigate</span>
+	
+	<span style='color:#e66170; font-weight:bold; '>for</span> <span style='color:#d2cd86; '>(</span><span style='color:#bb7977; '>int</span> i <span style='color:#d2cd86; '>=</span> start<span style='color:#b060b0; '>;</span> i <span style='color:#d2cd86; '>&lt;</span> end <span style='color:#d2cd86; '>-</span> <span style='color:#008c00; '>1</span><span style='color:#b060b0; '>;</span> i<span style='color:#d2cd86; '>+</span><span style='color:#d2cd86; '>+</span><span style='color:#d2cd86; '>)</span> <span style='color:#b060b0; '>{</span>
+		<span style='color:#9999a9; '>//Shift every value less than the pivot to the left of k</span>
+		<span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>list<span style='color:#d2cd86; '>[</span>i<span style='color:#d2cd86; '>]</span> <span style='color:#d2cd86; '>&lt;</span><span style='color:#d2cd86; '>=</span> pivot<span style='color:#d2cd86; '>)</span> <span style='color:#b060b0; '>{</span>
+			<span style='color:#bb7977; '>int</span> temp <span style='color:#d2cd86; '>=</span> list<span style='color:#d2cd86; '>[</span>i<span style='color:#d2cd86; '>]</span><span style='color:#b060b0; '>;</span>
+			list<span style='color:#d2cd86; '>[</span>i<span style='color:#d2cd86; '>]</span> <span style='color:#d2cd86; '>=</span> list<span style='color:#d2cd86; '>[</span>k <span style='color:#d2cd86; '>+</span> <span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>]</span><span style='color:#b060b0; '>;</span>
+			list<span style='color:#d2cd86; '>[</span>k <span style='color:#d2cd86; '>+</span> <span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>]</span> <span style='color:#d2cd86; '>=</span> temp<span style='color:#b060b0; '>;</span>
+			k<span style='color:#d2cd86; '>+</span><span style='color:#d2cd86; '>+</span><span style='color:#b060b0; '>;</span>
+		<span style='color:#b060b0; '>}</span>
+	<span style='color:#b060b0; '>}</span>
+	<span style='color:#9999a9; '>//Put the pivot in its correct place</span>
+	<span style='color:#bb7977; '>int</span> temp <span style='color:#d2cd86; '>=</span> list<span style='color:#d2cd86; '>[</span>end <span style='color:#d2cd86; '>-</span> <span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>]</span><span style='color:#b060b0; '>;</span>
+	list<span style='color:#d2cd86; '>[</span>end <span style='color:#d2cd86; '>-</span> <span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>]</span> <span style='color:#d2cd86; '>=</span> list <span style='color:#d2cd86; '>[</span>k <span style='color:#d2cd86; '>+</span> <span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>]</span><span style='color:#b060b0; '>;</span>
+	list<span style='color:#d2cd86; '>[</span>k <span style='color:#d2cd86; '>+</span> <span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>]</span> <span style='color:#d2cd86; '>=</span> temp<span style='color:#b060b0; '>;</span>
+	
+	sort<span style='color:#d2cd86; '>(</span>list<span style='color:#d2cd86; '>,</span> start<span style='color:#d2cd86; '>,</span> k <span style='color:#d2cd86; '>+</span> <span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span> <span style='color:#9999a9; '>//Sort left division</span>
+	sort<span style='color:#d2cd86; '>(</span>list<span style='color:#d2cd86; '>,</span> k <span style='color:#d2cd86; '>+</span> <span style='color:#008c00; '>2</span><span style='color:#d2cd86; '>,</span> end<span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span> <span style='color:#9999a9; '>//Sort right division</span>
+	
+<span style='color:#b060b0; '>}</span>
+</pre>
+<!--Created using ToHtml.com on 2020-12-01 16:40:07 UTC -->
+		</div>
+    </section>
+	
     <footer>
       <a href="https://github.com/Mahmoud-Ehab/Algorithms.git"><img src="./GitHub-Mark-Light-120px-plus.png"></a>
     </footer>
