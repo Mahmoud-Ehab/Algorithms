@@ -26,28 +26,28 @@ public class QuickSort
 		
 		//Print the list before and after sort
 		System.out.println("Unsorted: " + printList(unsortedList));
-		sort(unsortedList, 0, unsortedList.length);
+		sort(unsortedList, 0, unsortedList.length - 1);
 		System.out.println("Sorted: " + printList(unsortedList));
 	}
 	
 	
 	/*QuickSort Recursive Function
 	*p1: The list which needs to be sorted.
-	*p2: The start index of the list.
-	*p3: The end index of the list.
+	*p2: The first index of the list.
+	*p3: The last index of the list.
 	*p2 and p3 helps us divide the list easly while recursion.
 	*/
 	public static void sort(int[] list, int start, int end) {
 	
 		//Return from the function if the start is the end
-		if (start >= end - 1)
+		if (start >= end)
 			return;
 		
-		int pivot = list[end - 1];
+		int pivot = list[end];
 		
 		int k = start - 1; //Index of the last smaller number we investigate
 		
-		for (int i = start; i < end - 1; i++) {
+		for (int i = start; i < end; i++) {
 			//Shift every value less than the pivot to the left of k
 			if (list[i] <= pivot) {
 				int temp = list[i];
@@ -57,12 +57,12 @@ public class QuickSort
 			}
 		}
 		//Put the pivot in its correct place
-		int temp = list[end - 1];
-		list[end - 1] = list [k + 1];
+		int temp = list[end];
+		list[end] = list [k + 1];
 		list[k + 1] = temp;
 		
-		sort(list, start, k + 1); //Sort left division
-		sort(list, k + 2, end); //Sort right division
+		sort(list, start, k); //Sort left division
+		sort(list, k + 1, end); //Sort right division
 		
 	}
 	
