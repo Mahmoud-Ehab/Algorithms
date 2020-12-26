@@ -301,70 +301,73 @@
     <section class="searching content" style="height: 0;">
       <h2>Linear Search</h2>
       <div class="CC">
-      <pre style='color:#d1d1d1;'><span style='color:#9999a9; '>/*Linear Search Function</span>
-  <span style='color:#9999a9; '>*arr: the array in which the num supposed to be</span>
-  <span style='color:#9999a9; '>*i: the first index of the list</span>
-  <span style='color:#9999a9; '>*num: the number which we are looking for in arr</span>
-  <span style='color:#9999a9; '>*/</span>
-  <span style='color:#e66170; font-weight:bold; '>public</span> <span style='color:#e66170; font-weight:bold; '>static</span> boolean linearSearch(int[] arr, int i, int num) <span style='color:#b060b0; '>{</span>
+        <pre style='color:#d1d1d1;'><span style='color:#9999a9; '>/*Linear Search Function</span>
+<span style='color:#9999a9; '>*arr: the array in which the num supposed to be</span>
+<span style='color:#9999a9; '>*i: the first index of the list</span>
+<span style='color:#9999a9; '>*num: the number which we are looking for in arr</span>
+<span style='color:#9999a9; '>*/</span>
+<span style='color:#e66170; font-weight:bold; '>public</span> <span style='color:#e66170; font-weight:bold; '>static</span> int linearSearch(int[] arr, int i, int num) <span style='color:#b060b0; '>{</span>
 
-    <span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>i <span style='color:#d2cd86; '>></span><span style='color:#d2cd86; '>=</span> arr<span style='color:#d2cd86; '>.</span>length<span style='color:#d2cd86; '>)</span>
-      <span style='color:#e66170; font-weight:bold; '>return</span> <span style='color:#e66170; font-weight:bold; '>false</span><span style='color:#b060b0; '>;</span>
-    <span style='color:#e66170; font-weight:bold; '>else</span> <span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>arr<span style='color:#d2cd86; '>[</span>i<span style='color:#d2cd86; '>]</span> <span style='color:#d2cd86; '>=</span><span style='color:#d2cd86; '>=</span> num<span style='color:#d2cd86; '>)</span>
-      <span style='color:#e66170; font-weight:bold; '>return</span> <span style='color:#e66170; font-weight:bold; '>true</span><span style='color:#b060b0; '>;</span>
-    <span style='color:#e66170; font-weight:bold; '>else</span>
-      <span style='color:#e66170; font-weight:bold; '>return</span> linearSearch<span style='color:#d2cd86; '>(</span>arr<span style='color:#d2cd86; '>,</span> i <span style='color:#d2cd86; '>+</span> <span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>,</span> num<span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+	<span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>i <span style='color:#d2cd86; '>></span><span style='color:#d2cd86; '>=</span> arr<span style='color:#d2cd86; '>.</span>length<span style='color:#d2cd86; '>)</span>
+	   <span style='color:#e66170; font-weight:bold; '>return</span> <span style='color:#d2cd86; '>-</span><span style='color:#008c00; '>1</span><span style='color:#b060b0; '>;</span>
+	<span style='color:#e66170; font-weight:bold; '>else</span> <span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>arr<span style='color:#d2cd86; '>[</span>i<span style='color:#d2cd86; '>]</span> <span style='color:#d2cd86; '>=</span><span style='color:#d2cd86; '>=</span> num<span style='color:#d2cd86; '>)</span>
+	   <span style='color:#e66170; font-weight:bold; '>return</span> i<span style='color:#b060b0; '>;</span>
+	<span style='color:#e66170; font-weight:bold; '>else</span>
+	   <span style='color:#e66170; font-weight:bold; '>return</span> linearSearch<span style='color:#d2cd86; '>(</span>arr<span style='color:#d2cd86; '>,</span> i <span style='color:#d2cd86; '>+</span> <span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>,</span> num<span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
 
-  <span style='color:#b060b0; '>}</span>
+<span style='color:#b060b0; '>}</span>
 
-  <span style='color:#9999a9; '>/*Modified Linear Search</span>
-  <span style='color:#9999a9; '>*arr: the array in where the num supposed to be</span>
-  <span style='color:#9999a9; '>*l: the first index of the list</span>
-  <span style='color:#9999a9; '>*r: the last index of the list</span>
-  <span style='color:#9999a9; '>*num: the number which we are looking for in arr</span>
-  <span style='color:#9999a9; '>*/</span>
-  <span style='color:#e66170; font-weight:bold; '>public</span> <span style='color:#e66170; font-weight:bold; '>static</span> boolean modifiedLinearSearch(int[] arr, int l, int r, int num) <span style='color:#b060b0; '>{</span>
+<span style='color:#9999a9; '>/*Modified Linear Search</span>
+<span style='color:#9999a9; '>*arr: the array in where the num supposed to be</span>
+<span style='color:#9999a9; '>*l: the first index of the list</span>
+<span style='color:#9999a9; '>*r: the last index of the list</span>
+<span style='color:#9999a9; '>*num: the number which we are looking for in arr</span>
+<span style='color:#9999a9; '>*/</span>
+<span style='color:#e66170; font-weight:bold; '>public</span> <span style='color:#e66170; font-weight:bold; '>static</span> int modifiedLinearSearch(int[] arr, int l, int r, int num) <span style='color:#b060b0; '>{</span>
 
-    <span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>l <span style='color:#d2cd86; '>></span> r<span style='color:#d2cd86; '>)</span>
-      <span style='color:#e66170; font-weight:bold; '>return</span> <span style='color:#e66170; font-weight:bold; '>false</span><span style='color:#b060b0; '>;</span>
-    <span style='color:#e66170; font-weight:bold; '>else</span> <span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>arr<span style='color:#d2cd86; '>[</span>l<span style='color:#d2cd86; '>]</span> <span style='color:#d2cd86; '>=</span><span style='color:#d2cd86; '>=</span> num <span style='color:#d2cd86; '>|</span><span style='color:#d2cd86; '>|</span> arr<span style='color:#d2cd86; '>[</span>r<span style='color:#d2cd86; '>]</span> <span style='color:#d2cd86; '>=</span><span style='color:#d2cd86; '>=</span> num<span style='color:#d2cd86; '>)</span>
-      <span style='color:#e66170; font-weight:bold; '>return</span> <span style='color:#e66170; font-weight:bold; '>true</span><span style='color:#b060b0; '>;</span>
-    <span style='color:#e66170; font-weight:bold; '>else</span>
-      <span style='color:#e66170; font-weight:bold; '>return</span> modifiedLinearSearch<span style='color:#d2cd86; '>(</span>arr<span style='color:#d2cd86; '>,</span> l<span style='color:#d2cd86; '>+</span><span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>,</span> r<span style='color:#d2cd86; '>-</span><span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>,</span> num<span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+	<span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>l <span style='color:#d2cd86; '>></span> r<span style='color:#d2cd86; '>)</span>
+	   <span style='color:#e66170; font-weight:bold; '>return</span> <span style='color:#d2cd86; '>-</span><span style='color:#008c00; '>1</span><span style='color:#b060b0; '>;</span>
+	<span style='color:#e66170; font-weight:bold; '>else</span> <span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>arr<span style='color:#d2cd86; '>[</span>l<span style='color:#d2cd86; '>]</span> <span style='color:#d2cd86; '>=</span><span style='color:#d2cd86; '>=</span> num<span style='color:#d2cd86; '>)</span>
+	   <span style='color:#e66170; font-weight:bold; '>return</span> l<span style='color:#b060b0; '>;</span>
+	<span style='color:#e66170; font-weight:bold; '>else</span> <span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>arr<span style='color:#d2cd86; '>[</span>r<span style='color:#d2cd86; '>]</span> <span style='color:#d2cd86; '>=</span><span style='color:#d2cd86; '>=</span> num<span style='color:#d2cd86; '>)</span>
+	   <span style='color:#e66170; font-weight:bold; '>return</span> r<span style='color:#b060b0; '>;</span>
+	<span style='color:#e66170; font-weight:bold; '>else</span>
+	   <span style='color:#e66170; font-weight:bold; '>return</span> modifiedLinearSearch<span style='color:#d2cd86; '>(</span>arr<span style='color:#d2cd86; '>,</span> l<span style='color:#d2cd86; '>+</span><span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>,</span> r<span style='color:#d2cd86; '>-</span><span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>,</span> num<span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
 
-  <span style='color:#b060b0; '>}</span>
-  </pre>
-  <!--Created using ToHtml.com on 2020-12-26 11:05:51 UTC -->
+<span style='color:#b060b0; '>}</span>
+
+</pre>
+<!--Created using ToHtml.com on 2020-12-26 15:27:05 UTC -->
         </div>
 
         <h2>Binary Search</h2>
         <div class="CC">
           <pre style='color:#d1d1d1;'><span style='color:#9999a9; '>/*Linear Search Function</span>
-  <span style='color:#9999a9; '>*arr: the array in which the num supposed to be</span>
-  <span style='color:#9999a9; '>*f: the first index of arr</span>
-  <span style='color:#9999a9; '>*l: the last index of arr</span>
-  <span style='color:#9999a9; '>*num: the number which we are looking for in arr</span>
-  <span style='color:#9999a9; '>*/</span>
-  <span style='color:#e66170; font-weight:bold; '>public</span> <span style='color:#e66170; font-weight:bold; '>static</span> boolean binarySearch(int[] arr, int f, int l, int num) <span style='color:#b060b0; '>{</span>
+<span style='color:#9999a9; '>*arr: the array in which the num supposed to be</span>
+<span style='color:#9999a9; '>*f: the first index of arr</span>
+<span style='color:#9999a9; '>*l: the last index of arr</span>
+<span style='color:#9999a9; '>*num: the number which we are looking for in arr</span>
+<span style='color:#9999a9; '>*/</span>
+<span style='color:#e66170; font-weight:bold; '>public</span> <span style='color:#e66170; font-weight:bold; '>static</span> int binarySearch(int[] arr, int f, int l, int num) <span style='color:#b060b0; '>{</span>
 
-    <span style='color:#9999a9; '>//In case that the num is not in arr</span>
-    <span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>f <span style='color:#d2cd86; '>></span> l<span style='color:#d2cd86; '>)</span>
-      <span style='color:#e66170; font-weight:bold; '>return</span> <span style='color:#e66170; font-weight:bold; '>false</span><span style='color:#b060b0; '>;</span>
+	<span style='color:#9999a9; '>//Will be true, when we search for a num that's not in arr</span>
+	<span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>f <span style='color:#d2cd86; '>></span> l<span style='color:#d2cd86; '>)</span>
+	   <span style='color:#e66170; font-weight:bold; '>return</span> <span style='color:#d2cd86; '>-</span><span style='color:#008c00; '>1</span><span style='color:#b060b0; '>;</span>
 
-    <span style='color:#bb7977; '>int</span> m <span style='color:#d2cd86; '>=</span> <span style='color:#d2cd86; '>(</span>f <span style='color:#d2cd86; '>+</span> l<span style='color:#d2cd86; '>)</span> <span style='color:#d2cd86; '>/</span> <span style='color:#008c00; '>2</span><span style='color:#b060b0; '>;</span> <span style='color:#9999a9; '>//The middle index, which is between f and l</span>
-    <span style='color:#bb7977; '>int</span> mid <span style='color:#d2cd86; '>=</span> arr<span style='color:#d2cd86; '>[</span>m<span style='color:#d2cd86; '>]</span><span style='color:#b060b0; '>;</span> <span style='color:#9999a9; '>//A temporary variable to carry arr[m] value</span>
+	<span style='color:#bb7977; '>int</span> m <span style='color:#d2cd86; '>=</span> <span style='color:#d2cd86; '>(</span>f <span style='color:#d2cd86; '>+</span> l<span style='color:#d2cd86; '>)</span> <span style='color:#d2cd86; '>/</span> <span style='color:#008c00; '>2</span><span style='color:#b060b0; '>;</span> <span style='color:#9999a9; '>//The middle index, which is between f and l</span>
+	<span style='color:#bb7977; '>int</span> mid <span style='color:#d2cd86; '>=</span> arr<span style='color:#d2cd86; '>[</span>m<span style='color:#d2cd86; '>]</span><span style='color:#b060b0; '>;</span> <span style='color:#9999a9; '>//A temporary variable to carry arr[m] value</span>
 
-    <span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>mid <span style='color:#d2cd86; '>=</span><span style='color:#d2cd86; '>=</span> num<span style='color:#d2cd86; '>)</span>
-      <span style='color:#e66170; font-weight:bold; '>return</span> <span style='color:#e66170; font-weight:bold; '>true</span><span style='color:#b060b0; '>;</span>
-    <span style='color:#e66170; font-weight:bold; '>else</span> <span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>mid <span style='color:#d2cd86; '>&lt;</span> num<span style='color:#d2cd86; '>)</span>
-      <span style='color:#e66170; font-weight:bold; '>return</span> binarySearch<span style='color:#d2cd86; '>(</span>arr<span style='color:#d2cd86; '>,</span> m<span style='color:#d2cd86; '>+</span><span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>,</span> l<span style='color:#d2cd86; '>,</span> num<span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span> <span style='color:#9999a9; '>//Search in the right part</span>
-    <span style='color:#e66170; font-weight:bold; '>else</span>
-      <span style='color:#e66170; font-weight:bold; '>return</span> binarySearch<span style='color:#d2cd86; '>(</span>arr<span style='color:#d2cd86; '>,</span> f<span style='color:#d2cd86; '>,</span> m<span style='color:#d2cd86; '>-</span><span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>,</span> num<span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span> <span style='color:#9999a9; '>//Search in the left part</span>
+	<span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>mid <span style='color:#d2cd86; '>=</span><span style='color:#d2cd86; '>=</span> num<span style='color:#d2cd86; '>)</span>
+	   <span style='color:#e66170; font-weight:bold; '>return</span> m<span style='color:#b060b0; '>;</span>
+	<span style='color:#e66170; font-weight:bold; '>else</span> <span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>mid <span style='color:#d2cd86; '>&lt;</span> num<span style='color:#d2cd86; '>)</span>
+	   <span style='color:#e66170; font-weight:bold; '>return</span> binarySearch<span style='color:#d2cd86; '>(</span>arr<span style='color:#d2cd86; '>,</span> m<span style='color:#d2cd86; '>+</span><span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>,</span> l<span style='color:#d2cd86; '>,</span> num<span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span> <span style='color:#9999a9; '>//Search in the right part</span>
+	<span style='color:#e66170; font-weight:bold; '>else</span>
+	   <span style='color:#e66170; font-weight:bold; '>return</span> binarySearch<span style='color:#d2cd86; '>(</span>arr<span style='color:#d2cd86; '>,</span> f<span style='color:#d2cd86; '>,</span> m<span style='color:#d2cd86; '>-</span><span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>,</span> num<span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span> <span style='color:#9999a9; '>//Search in the left part</span>
 
-  <span style='color:#b060b0; '>}</span>
+<span style='color:#b060b0; '>}</span>
 
-  </pre>
-  <!--Created using ToHtml.com on 2020-12-26 11:12:12 UTC -->
+</pre>
+<!--Created using ToHtml.com on 2020-12-26 15:30:57 UTC -->
         </div>
     </section>
 

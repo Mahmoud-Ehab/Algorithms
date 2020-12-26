@@ -8,16 +8,24 @@ class LinearSearch
 	public static void main(String[] args) {
 		//Validate Usage
   		if (args.length == 0) {
-			System.out.println("Valid Usage: (Filename).java (n.. whereas the list contains 0 - n)");
+			System.out.println("Valid Usage: (Filename).java (size of array) or (sequence of numbers");
 			System.out.println("example: LinearSearch.java 100");
-			System.out.println("example: LinearSearch.java 12342");
+			System.out.println("example: LinearSearch.java 5 2 1 3 6");
 			return;
 		}
-		
-		//Initialize the list
-		list = new int[Integer.parseInt(args[0])];
-		for (int i = 0; i < list.length; i++) {
-			list[i] = i;
+		else if (args.length == 1) {
+			//Initialize the list
+			list = new int[Integer.parseInt(args[0])];
+			for (int i = 0; i < list.length; i++) {
+				list[i] = i;
+			}
+		}
+		else {
+			//Initialize the list
+			list = new int[args.length];
+			for (int i = 0; i < list.length; i++) {
+				list[i] = Integer.parseInt(args[i]);
+			}
 		}
 		
 		//Ask the user for the required element to be searched
@@ -29,12 +37,12 @@ class LinearSearch
 		
 		//Test linearSearch Function
 		double t1 = System.currentTimeMillis();
-		boolean found = linearSearch(list, 0, num);
+		int found = linearSearch(list, 0, num);
 		double t2 = System.currentTimeMillis();
 		
-		if (found)
-			System.out.println("Found it with linearSearch in " + 
-			String.format("%.3f", (t2 - t1)/1000) + " seconds");
+		if (found > -1)
+			System.out.println("Found it with linearSearch at index " +
+			found + " in " + String.format("%.3f", (t2 - t1)/1000) + " seconds");
 		else
 			System.out.println("Didn't find it with linearSearch");
 		
@@ -43,9 +51,9 @@ class LinearSearch
 		found = modifiedLinearSearch(list, 0, list.length-1, num);
 		t2 = System.currentTimeMillis();
 		
-		if (found)
-			System.out.println("Found it modified_linearSearch in " + 
-			String.format("%.3f", (t2 - t1)/1000) + " seconds");
+		if (found > -1)
+			System.out.println("Found it with modifiedLinearSearch at index " +
+			found + " in " + String.format("%.3f", (t2 - t1)/1000) + " seconds");
 		else
 			System.out.println("Didn't find it with modifiedLinearSearch");
 	}
@@ -55,12 +63,12 @@ class LinearSearch
 	*i: the first index of the list
 	*num: the number which we are looking for in arr
 	*/
-	public static boolean linearSearch(int[] arr, int i, int num) {
+	public static int linearSearch(int[] arr, int i, int num) {
 	
 		if (i >= arr.length)
-			return false;
+			return -1;
 		else if (arr[i] == num)
-			return true;
+			return i;
 		else
 			return linearSearch(arr, i + 1, num);
 		
@@ -72,12 +80,14 @@ class LinearSearch
 	*r: the last index of the list
 	*num: the number which we are looking for in arr
 	*/
-	public static boolean modifiedLinearSearch(int[] arr, int l, int r, int num) {
+	public static int modifiedLinearSearch(int[] arr, int l, int r, int num) {
 		
 		if (l > r)
-			return false;
-		else if (arr[l] == num || arr[r] == num)
-			return true;
+			return -1;
+		else if (arr[l] == num)
+			return l;
+		else if (arr[r] == num)
+			return r;
 		else
 			return modifiedLinearSearch(arr, l+1, r-1, num);
 		
